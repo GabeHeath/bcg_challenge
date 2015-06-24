@@ -1,17 +1,20 @@
 BCGContactBundle_homepage:
     path:     /
     defaults: { _controller: BCGContactBundle:Page:index }
+
+BCGContactBundle_agency_show:
+    path:  /{id}
+    defaults: { _controller: BCGContactBundle:Agency:show }
     requirements:
-        _method:  GET
+        id: \d+
+
+
+
 
 BCGContactBundle_login:
     path:     /loginxxxx
     #defaults: { _controller: BCGContactBundle:Page:login }
-    requirements:
-        _method:  GET
 
 BCGContactBundle_signup:
     path:     /signupxxx
     #defaults: { _controller: BCGContactBundle:Page:signup }
-    requirements:
-        _method:  GET

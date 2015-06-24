@@ -5,6 +5,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
             <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+            <link href="{{ asset('css/screen.css') }}" rel="stylesheet" />
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -17,17 +18,18 @@
                 </div>
 
                 <span class="navbar-right">
-                    <a class="btn btn-primary" href="{{ path('BCGContactBundle_login') }}">Login</a></li>
-                    <a class="btn btn-default" href="{{ path('BCGContactBundle_signup') }}">Sign Up</a></li>
+                    {% block navigation %}
+                        <a class="btn btn-primary" href="{{ path('BCGContactBundle_login') }}">Login</a></li>
+                        <a class="btn btn-default" href="{{ path('BCGContactBundle_signup') }}">Sign Up</a></li>
+                    {% endblock %}
                 </span>
             </div>
         </nav>
 
+        <div class="col-md-8 col-md-offset-2">
+            {% block body %}{% endblock %}
+        </div>
 
-
-
-
-        {% block body %}{% endblock %}
         {% block javascripts %}
             <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>

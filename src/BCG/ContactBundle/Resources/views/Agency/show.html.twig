@@ -1,0 +1,25 @@
+{% extends 'BCGContactBundle::layout.html.twig' %}
+
+{% block title %}{{ agency.name }}{% endblock %}
+
+{% block body %}
+    <div class="agency">
+        <header>
+            <h2>{{ agency.name }}</h2>
+            <div class="established">
+                <time datetime="{{ agency.established|date('c') }}">{{ agency.established|date('l, F j, Y') }}</time>
+            </div>
+        </header>
+        
+        <div>
+            <h4>Contact Information</h4>
+            <p>{{ agency.phone }}</p>
+            <p>{{ agency.email }}</p>
+            <p>{{ agency.address }}</p>
+        </div>
+
+        <div>
+            <h4>Number of Users</h4>
+        </div>
+    </div>
+{% endblock %}

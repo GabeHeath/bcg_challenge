@@ -1,0 +1,25 @@
+.page-title{
+	text-align: center;
+	font-size: 45px;
+  	font-weight: 500;
+  	margin-bottom: 20px;
+}
+
+.odd, .even {
+  padding: 20px 30px 20px 30px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.odd {background-color: #eee;}
+
+.established {font-size: 12px; font-weight: 200;}
+
+.agency-name {
+  float: left;
+  margin-right: 30px;
+  border-right: 1px solid rgb(161, 161, 161);
+  padding-right: 20px;
+  height: 190px;
+  width: 210px;
+}
