@@ -1,0 +1,3 @@
+bcg_contact_homepage:
+    path:     /
+    defaults: { _controller: BCGContactBundle:Page:index }
