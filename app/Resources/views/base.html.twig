@@ -4,14 +4,33 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
-
+            <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                  Agency Contacts
+                </div>
+
+                <span class="navbar-right">
+                    <a class="btn btn-primary" href="{{ path('BCGContactBundle_login') }}">Login</a></li>
+                    <a class="btn btn-default" href="{{ path('BCGContactBundle_signup') }}">Sign Up</a></li>
+                </span>
+            </div>
+        </nav>
+
+
+
+
+
         {% block body %}{% endblock %}
         {% block javascripts %}
             <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
         {% endblock %}
     </body>
 </html>
