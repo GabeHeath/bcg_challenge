@@ -1,0 +1,6 @@
+#sign-in-form     { float: left; margin: 7px 10px; }
+form label        { color: #eee; margin-left: 0px; }
+#sign-up-btn, 
+#logout-btn       {  margin-top: 7px; }
+#logged-in-as     { float: left; margin: 15px 20px; color: #fff; }
+.navbar-header    { color: #fff; font-size: 30px; }

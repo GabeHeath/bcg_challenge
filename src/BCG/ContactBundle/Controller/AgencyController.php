@@ -17,7 +17,8 @@ class AgencyController extends Controller
         }
 
         return $this->render('BCGContactBundle:Agency:show.html.twig', array(
-            'agency'      => $agency,
+            'agency'     => $agency,
+            'loggedIn'   => $loggedIn
         ));
     }
 }

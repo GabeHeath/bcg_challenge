@@ -1,5 +1,14 @@
 {% extends 'BCGContactBundle::layout.html.twig' %}
 
+{% block navigation %}
+	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    	<div id="logged-in-as">Logged in as: {{ app.user.username }}</div>
+    	<a id="logout-btn" class="btn btn-primary" href="{{ path('fos_user_security_logout') }}">Log out</a>
+	{% else %}
+		{{ render(url('fos_user_security_login')) }}
+	{% endif %}
+{% endblock %}
+
 {% block body %}
 	<div class="page-title col-md-6 col-md-offset-3">
 		Agencies
@@ -26,8 +35,10 @@
 
 	        <div class="col-md-2 col-md-offset-1">
 	            <h4>Users: </h4>
-	            <p><a href="{{ path('BCGContactBundle_agency_show', { 'id': agency.id }) }}">View Users</a></p>
-	            <p><a href="{{ path('BCGContactBundle_agency_show', { 'id': agency.id }) }}">Edit Agency</a></p>
+	            	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+			            <p><a href="{{ path('BCGContactBundle_agency_show', { 'id': agency.id }) }}">View Users</a></p>
+			            <p><a href="{{ path('BCGContactBundle_agency_show', { 'id': agency.id }) }}">Edit Agency</a></p>
+		            {% endif %}
 	        </div>
 
 	        
@@ -35,4 +46,5 @@
 	{% else %}
 	    <p>No Agencies exist.</p>
 	{% endfor %}
+
 {% endblock %}
