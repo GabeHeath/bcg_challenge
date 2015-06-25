@@ -16,3 +16,9 @@ form label        { color: #eee; margin-left: 0px; }
   margin-bottom: 30px;
 }
 .highlight {color: gray;}
+
+#fos_user_registration_form label {
+	color: black;
+	width: 150px;
+}
+.top-space-md {margin-top: 50px;}

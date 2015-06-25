@@ -11,7 +11,7 @@
 {% block navigation %}
 	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
     	<div id="logged-in-as">
-    		Logged in as: <span class="highlight">{{ app.user.username }} with the {{ app.user.agency }} agency</span>
+    		Logged in as: <span class="highlight">{{ app.user.username }} with the {{ app.user.agency }} Agency</span>
     	</div>
     	<a id="logout-btn" class="btn btn-primary" href="{{ path('fos_user_security_logout') }}">Log out</a>
 	{% else %}

@@ -48,7 +48,7 @@
 
             <div class="col-md-2 col-md-offset-1">
                 {% if (is_granted("IS_AUTHENTICATED_REMEMBERED")) and (app.user.agency == agency) %}
-                    <p><a class="btn btn-block btn-primary" href="{{ path('BCGContactBundle_agency_show', { 'id': agency.id }) }}">Edit User</a></p>
+                    <p><a class="btn btn-block btn-default" href="{{ path('BCGContactBundle_agency_show', { 'id': agency.id }) }}">Edit User</a></p>
                 {% endif %}
             </div>
         </div>
