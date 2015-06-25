@@ -23,7 +23,30 @@
   height: 190px;
   width: 210px;
 }
+#sign-in-form     { float: left; margin: 7px 10px; }
+#sign-up-btn, 
+#logout-btn       {  margin-top: 7px; }
+#logged-in-as     { float: left; margin: 15px 20px; color: #fff; }
+.navbar-header    { color: #fff; font-size: 30px; }
+#confirmed-body {
+  background-color: rgb(186, 236, 186);
+  padding: 30px;
+  text-align: center;
+  font-size: 15px;
+  color: rgb(43, 155, 43);
+  border: 1px solid rgb(115, 184, 115);
+  border-radius: 4px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+.highlight {color: gray;}
 
-#user-spacer {margin-top: 20px;}
+#fos_user_registration_form label, .form-fields label {
+	color: black;
+	width: 150px;
+}
+.top-space-md {margin-top: 50px;}
+.top-space-sm {margin-top: 20px;}
 
 .chevron-left {float:left; margin-top: 2px;}
+#form_established {display: inline;}
