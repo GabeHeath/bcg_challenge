@@ -8,15 +8,11 @@ class PageController extends Controller
 {
     public function indexAction()
     {
-    	$em = $this->getDoctrine()
+        $em = $this->getDoctrine()
                    ->getManager();
 
-        $agencies = $em->createQueryBuilder()
-                    ->select('a')
-                    ->from('BCGContactBundle:Agency',  'a')
-                    ->addOrderBy('a.name', 'ASC')
-                    ->getQuery()
-                    ->getResult();
+        $agencies = $em->getRepository('BCGContactBundle:Agency')
+                    ->getAgencies();
 
         return $this->render('BCGContactBundle:Page:index.html.twig', array(
             'agencies' => $agencies

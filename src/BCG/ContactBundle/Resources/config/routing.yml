@@ -7,3 +7,15 @@ BCGContactBundle_agency_show:
     defaults: { _controller: BCGContactBundle:Agency:show }
     requirements:
         id: \d+
+
+BCGContactBundle_agency_edit:
+    path:  /{id}/edit
+    defaults: { _controller: BCGContactBundle:Agency:edit }
+    requirements:
+        id: \d+
+
+BCGContactBundle_user_edit:
+    path:  /user/{user_id}/edit
+    defaults: { _controller: BCGContactBundle:User:edit }
+    requirements:
+        user_id: \d+
