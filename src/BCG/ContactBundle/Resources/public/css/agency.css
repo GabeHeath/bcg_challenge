@@ -23,3 +23,7 @@
   height: 190px;
   width: 210px;
 }
+
+#user-spacer {margin-top: 20px;}
+
+.chevron-left {float:left; margin-top: 2px;}

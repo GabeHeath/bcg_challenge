@@ -1,20 +1,12 @@
 {% extends 'BCGContactBundle::layout.html.twig' %}
 
-{% block navigation %}
-	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-    	<div id="logged-in-as">Logged in as: {{ app.user.username }}</div>
-    	<a id="logout-btn" class="btn btn-primary" href="{{ path('fos_user_security_logout') }}">Log out</a>
-	{% else %}
-		{{ render(url('fos_user_security_login')) }}
-	{% endif %}
-{% endblock %}
-
 {% block body %}
 	<div class="page-title col-md-6 col-md-offset-3">
 		Agencies
 	</div>
 
 	{% for agency in agencies %}
+
 	    <div class="agency {{ cycle(['odd', 'even'], loop.index0) }} col-md-12">
 	        <div class="col-md-3">
 	            <h2>{{ agency.name }}</h2>
@@ -34,17 +26,17 @@
 	        </div>
 
 	        <div class="col-md-2 col-md-offset-1">
-	            <h4>Users: </h4>
+	            <h4>Users: {{ agency.users|length }}</h4>
 	            	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-			            <p><a href="{{ path('BCGContactBundle_agency_show', { 'id': agency.id }) }}">View Users</a></p>
-			            <p><a href="{{ path('BCGContactBundle_agency_show', { 'id': agency.id }) }}">Edit Agency</a></p>
+			            <p><a class="btn btn-block btn-primary" href="{{ path('BCGContactBundle_agency_show', { 'id': agency.id }) }}">View Users</a></p>
+			            <p><a class="btn btn-block btn-primary" href="{{ path('BCGContactBundle_agency_show', { 'id': agency.id }) }}">Edit Agency</a></p>
 		            {% endif %}
 	        </div>
 
 	        
 		</div>
 	{% else %}
-	    <p>No Agencies exist.</p>
+	    <div class="col-md-12">No Agencies exist.</div>
 	{% endfor %}
 
 {% endblock %}

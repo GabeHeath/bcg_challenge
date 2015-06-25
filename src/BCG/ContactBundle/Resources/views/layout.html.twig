@@ -8,6 +8,17 @@
     {% endstylesheets %}
 {% endblock %}
 
+{% block navigation %}
+	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    	<div id="logged-in-as">
+    		Logged in as: <span class="highlight">{{ app.user.username }} with the {{ app.user.agency }} agency</span>
+    	</div>
+    	<a id="logout-btn" class="btn btn-primary" href="{{ path('fos_user_security_logout') }}">Log out</a>
+	{% else %}
+		{{ render(url('fos_user_security_login')) }}
+	{% endif %}
+{% endblock %}
+
 {% block body %}	
-	Body Content
+	{{ block('fos_user_content') }}
 {% endblock %}

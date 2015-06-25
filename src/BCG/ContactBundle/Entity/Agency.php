@@ -3,6 +3,7 @@
 namespace BCG\ContactBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -43,6 +44,9 @@ class Agency
     */
     protected $established;
 
+    /**
+    * @ORM\OneToMany(targetEntity="User", mappedBy="agency")
+    */
     protected $users;
 
     /**
@@ -57,6 +61,7 @@ class Agency
 
     public function __construct()
     {
+        $this->users = new ArrayCollection();
         $this->setCreated(new \DateTime());
         $this->setUpdated(new \DateTime());
     }
@@ -238,5 +243,43 @@ class Agency
     public function getEstablished()
     {
         return $this->established;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+    /**
+     * Add users
+     *
+     * @param \BCG\ContactBundle\Entity\User $users
+     * @return Agency
+     */
+    public function addUser(\BCG\ContactBundle\Entity\User $users)
+    {
+        $this->users[] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \BCG\ContactBundle\Entity\User $users
+     */
+    public function removeUser(\BCG\ContactBundle\Entity\User $users)
+    {
+        $this->users->removeElement($users);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

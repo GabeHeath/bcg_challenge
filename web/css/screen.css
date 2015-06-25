@@ -4,3 +4,15 @@ form label        { color: #eee; margin-left: 0px; }
 #logout-btn       {  margin-top: 7px; }
 #logged-in-as     { float: left; margin: 15px 20px; color: #fff; }
 .navbar-header    { color: #fff; font-size: 30px; }
+#confirmed-body {
+  background-color: rgb(186, 236, 186);
+  padding: 30px;
+  text-align: center;
+  font-size: 15px;
+  color: rgb(43, 155, 43);
+  border: 1px solid rgb(115, 184, 115);
+  border-radius: 4px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+.highlight {color: gray;}

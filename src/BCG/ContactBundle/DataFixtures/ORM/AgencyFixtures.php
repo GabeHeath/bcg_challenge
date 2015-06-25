@@ -2,12 +2,16 @@
 
 namespace BCG\ContactBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use BCG\ContactBundle\Entity\Agency;
 
-class AgencyFixtures implements FixtureInterface
+class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
 {
+    /**
+    * {@inheritDoc}
+    */
     public function load(ObjectManager $manager)
     {
         $agency1 = new Agency();
@@ -61,6 +65,20 @@ class AgencyFixtures implements FixtureInterface
         $manager->persist($agency5);
 
         $manager->flush();
+
+        $this->addReference('agency-1',  $agency1);
+        $this->addReference('agency-2', $agency2);
+        $this->addReference('agency-3', $agency3);
+        $this->addReference('agency-4', $agency4);
+        $this->addReference('agency-5', $agency5);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getOrder()
+    {
+        return 1;
     }
 
 }

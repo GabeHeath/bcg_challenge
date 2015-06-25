@@ -7,14 +7,3 @@ BCGContactBundle_agency_show:
     defaults: { _controller: BCGContactBundle:Agency:show }
     requirements:
         id: \d+
-
-
-
-
-BCGContactBundle_login:
-    path:     /loginxxxx
-    #defaults: { _controller: BCGContactBundle:Page:login }
-
-BCGContactBundle_signup:
-    path:     /signupxxx
-    #defaults: { _controller: BCGContactBundle:Page:signup }

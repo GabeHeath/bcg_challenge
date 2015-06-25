@@ -3,23 +3,56 @@
 {% block title %}{{ agency.name }}{% endblock %}
 
 {% block body %}
-    <div class="agency">
-        <header>
-            <h2>{{ agency.name }}</h2>
-            <div class="established">
-                <time datetime="{{ agency.established|date('c') }}">{{ agency.established|date('l, F j, Y') }}</time>
+    <div class="agency odd col-md-12">
+            <div class="col-md-3">
+                <h2>{{ agency.name }}</h2>
+                <div class="established">
+                    Established:<br>
+                    <time datetime="{{ agency.established|date('c') }}">{{ agency.established|date('F j, Y') }}</time>
+                </div>
             </div>
-        </header>
-        
-        <div>
-            <h4>Contact Information</h4>
-            <p>{{ agency.phone }}</p>
-            <p>{{ agency.email }}</p>
-            <p>{{ agency.address }}</p>
+            
+            <div class="contact col-md-5 col-md-offset-1">
+                <h4>Contact Information</h4>
+                <div class="c-content">
+                    <p>{{ agency.phone }}</p>
+                    <p>{{ agency.email }}</p>
+                    <p>{{ agency.address }}</p>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-md-offset-1">
+                <h4>Users: {{ agency.users|length }}</h4>
+                    {% if (is_granted("IS_AUTHENTICATED_REMEMBERED")) and (app.user.agency == agency) %}
+                        <p><a class="btn btn-block btn-primary" href="{{ path('BCGContactBundle_agency_show', { 'id': agency.id }) }}">Edit Agency</a></p>
+                    {% endif %}
+                    <p><a class="btn btn-block btn-primary" href="/"><i class="glyphicon glyphicon-menu-left chevron-left"></i> Back</a></p>
+            </div>
         </div>
 
-        <div>
-            <h4>Number of Users</h4>
+        <div id="user-spacer" class="col-md-12"></div>
+
+        {% for user in agency.users %}
+            <div class="agency {{ cycle(['even', 'odd'], loop.index0) }} col-md-12">
+            <div class="col-md-3">
+                <h4>{{ user.name }}</h4>
+            </div>
+            
+            <div class="contact col-md-5 col-md-offset-1">
+                <div class="c-content">
+                    <p>{{ user.phone }}</p>
+                    <p>{{ user.email }}</p>
+                    <p>{{ user.address }}</p>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-md-offset-1">
+                {% if (is_granted("IS_AUTHENTICATED_REMEMBERED")) and (app.user.agency == agency) %}
+                    <p><a class="btn btn-block btn-primary" href="{{ path('BCGContactBundle_agency_show', { 'id': agency.id }) }}">Edit User</a></p>
+                {% endif %}
+            </div>
         </div>
-    </div>
+        {% else %}
+            <div class="col-md-12">No Users exist for this Agency.</div>
+        {% endfor %}
 {% endblock %}

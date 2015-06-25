@@ -13,14 +13,13 @@
 
         <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
-                <div class="navbar-header">
+                <a class="navbar-header" href="/">
                   Contacts App
-                </div>
+                </a>
 
                 <span class="navbar-right">
                     {% block navigation %}
-                        <a class="btn btn-primary" href="{{ path('BCGContactBundle_login') }}">Login</a>
-                        <a class="btn btn-default" href="{{ path('BCGContactBundle_signup') }}">Sign Up</a>
+                        {{ render(url('fos_user_security_login')) }}
                     {% endblock %}
                 </span>
             </div>

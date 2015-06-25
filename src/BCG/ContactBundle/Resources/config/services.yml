@@ -1,4 +1,8 @@
 services:
+    acme_user.registration.form.type:
+        class: BCG\ContactBundle\Form\Type\RegistrationFormType
+        tags:
+            - { name: form.type, alias: bcg_user_registration }
 #    bcg_contact.example:
 #        class: BCG\ContactBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
