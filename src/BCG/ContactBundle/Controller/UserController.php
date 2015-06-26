@@ -23,7 +23,6 @@ class UserController extends Controller
 
         // Create the form fields to be edited on form
         $form = $this->createFormBuilder($user)
-            ->add('username', 'text')
             ->add('name', 'text')
             ->add('phone', 'text')
             ->add('email', 'text')
