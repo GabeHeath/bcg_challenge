@@ -3,13 +3,13 @@ BCGContactBundle_homepage:
     defaults: { _controller: BCGContactBundle:Page:index }
 
 BCGContactBundle_agency_show:
-    path:  /{id}
+    path:  /agency/{id}
     defaults: { _controller: BCGContactBundle:Agency:show }
     requirements:
         id: \d+
 
 BCGContactBundle_agency_edit:
-    path:  /{id}/edit
+    path:  /agency/{id}/edit
     defaults: { _controller: BCGContactBundle:Agency:edit }
     requirements:
         id: \d+

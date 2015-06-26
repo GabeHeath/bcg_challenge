@@ -6,9 +6,13 @@
 	{% trans_default_domain 'FOSUserBundle' %}
 
 	<div class="form-fields col-md-6 col-md-offset-3 top-space-md">
+
+		{# If logged in user is part of this agency render edit form
+		   else display not permitted message #}
 		{% if agency == app.user.agency %}
 			<div class="alert alert-info">Edit this agency's details below:</div>
 			<br>
+			{# Render entire edit form generated in AgencyController#edit #}
 			{{ form_start(form) }}
 			{{ form_widget(form) }}
 			{{ form_end(form) }}
@@ -18,7 +22,9 @@
 			</div>
 			<br>
 		{% endif %}
-		<a class="btn btn-default btn-block" href="/">
+
+		{# Back button returns to this agency's show page #}
+		<a class="btn btn-default btn-block" href="{{ path('BCGContactBundle_agency_show', { 'id': agency.id }) }}">
 			<i class="glyphicon glyphicon-menu-left chevron-left"></i> 
 			Back
 		</a>

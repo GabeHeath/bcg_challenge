@@ -9,6 +9,8 @@ class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        // Extends fos_use_registration form.
+        // Added additional fields for registration form.
         $builder->add('name');
         $builder->add('phone');
         $builder->add('address');

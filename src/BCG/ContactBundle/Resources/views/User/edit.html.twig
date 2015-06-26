@@ -14,11 +14,11 @@
 			{{ form_end(form) }}
 		{% else %}
 			<div class="alert alert-danger">
-				Only members of {{user.agency.name}} can edit this user.
+				Only members of {{ user.agency.name }} can edit this user.
 			</div>
 			<br>
 		{% endif %}
-		<a class="btn btn-default btn-block" href="/">
+		<a class="btn btn-default btn-block" href="{{ path('BCGContactBundle_agency_show', { 'id': app.user.agency.id }) }}"">
 			<i class="glyphicon glyphicon-menu-left chevron-left"></i> 
 			Back
 		</a>

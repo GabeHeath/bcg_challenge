@@ -8,6 +8,8 @@
     {% endstylesheets %}
 {% endblock %}
 
+{# If not logged in show login fields and sign up button in nav bar.
+   If logged in show signed in as username and agency and logout button #}
 {% block navigation %}
 	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
     	<div id="logged-in-as">

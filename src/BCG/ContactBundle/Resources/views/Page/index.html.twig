@@ -5,7 +5,10 @@
 		Agencies
 	</div>
 
+	{# Begin Agencies loop #}
 	{% for agency in agencies %}
+
+		{# Display agency name and established date #}
 	    <div class="agency {{ cycle(['odd', 'even'], loop.index0) }} col-md-12">
 	        <div class="col-md-3">
 	            <h2>{{ agency.name }}</h2>
@@ -15,6 +18,7 @@
 	            </div>
 	        </div>
 	        
+	        {# Display agency stored data #}
 	        <div class="contact col-md-5 col-md-offset-1">
 	            <h4>Contact Information</h4>
 	            <div class="c-content">
@@ -24,6 +28,7 @@
 	            </div>
 	        </div>
 
+	        {# If user is logged in show view users button #}
 	        <div class="col-md-2 col-md-offset-1">
 	            <h4>Users: {{ agency.users|length }}</h4>
 	            	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -34,5 +39,6 @@
 	{% else %}
 	    <div class="col-md-12">No Agencies exist.</div>
 	{% endfor %}
+	{# End Agencies loop #}
 
 {% endblock %}
